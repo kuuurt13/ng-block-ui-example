@@ -1,18 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { BlockUIModule } from 'ng-block-ui';
 
+import { BlockTemplateComponent } from './block-template.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BlockUIModule.forRoot({
+      template: BlockTemplateComponent
+    })
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    BlockTemplateComponent
+  ],
+  entryComponents: [
+    BlockTemplateComponent // Make sure to add it to the entry components
+  ],
+  bootstrap: [ AppComponent ]
 })
+
 export class AppModule { }
